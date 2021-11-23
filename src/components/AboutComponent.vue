@@ -1,5 +1,5 @@
 <template>
-  <div class="container-md content-container">
+  <v-container class="content-container">
     <h1 class="text-center">Uno</h1>
     <hr/>
     <p>
@@ -173,7 +173,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
