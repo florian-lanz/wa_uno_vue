@@ -4,7 +4,6 @@
         app
         color="#6593A6"
         elevate-on-scroll
-        scroll-target="#scrolling-techniques-7"
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
