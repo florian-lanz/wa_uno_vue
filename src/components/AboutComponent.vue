@@ -239,7 +239,7 @@
 
             <v-spacer></v-spacer>
 
-            <strong class="footer-names">© {{ new Date().getFullYear() }} • Moritz Knauer & Florian Lanz</strong>
+            <p class="footer-names">© {{ new Date().getFullYear() }} • Moritz Knauer & Florian Lanz</p>
 
             <v-spacer></v-spacer>
 
