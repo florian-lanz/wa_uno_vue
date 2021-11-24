@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-card :elevation="0">
+    <v-card :elevation="0" class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-card-text>
         <h1 class="text-center">Uno</h1>
         <hr/>
@@ -65,7 +65,7 @@
       </v-card-text>
     </v-card>
 
-    <v-row>
+    <v-row  class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col md="2" sm="12">
         <v-card :elevation="0">
           <v-carousel cycle hide-delimiter-background hide-delimiters show-arrows-on-hover height="auto">
@@ -98,7 +98,7 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col md="2" sm="12">
         <v-card :elevation="0">
           <v-carousel cycle hide-delimiter-background hide-delimiters show-arrows-on-hover height="auto">
@@ -133,7 +133,7 @@
 
 
 
-    <v-row>
+    <v-row class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col md="2" sm="12">
         <v-card :elevation="0">
           <v-carousel cycle hide-delimiter-background hide-delimiters show-arrows-on-hover height="auto">
@@ -166,13 +166,13 @@
     </v-row>
 
 
-    <v-card :elevation="0">
+    <v-card :elevation="0" class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-card-text>
         <h3 class="text-center">Spezialkarten</h3>
       </v-card-text>
     </v-card>
 
-    <v-row>
+    <v-row class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col md="2" sm="12">
         <v-card :elevation="0">
           <v-card-text>
@@ -195,7 +195,7 @@
       </v-col>
     </v-row>
 
-    <v-row>
+    <v-row class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col md="2" sm="12">
         <v-card :elevation="0">
           <v-card-text>
@@ -220,15 +220,15 @@
       </v-col>
     </v-row>
 
-    <v-card :elevation="0">
+    <v-card :elevation="0" class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-card-text>
         <hr/>
       </v-card-text>
     </v-card>
 
     <template>
-      <v-footer padless >
-        <v-card class="flex" flat tile >
+      <v-footer padless>
+        <v-card class="flex pl-md-16 pr-md-16 pl-sm-8 pr-sm-8" flat tile >
 
           <v-card-title class="white--text">
 
