@@ -32,21 +32,21 @@
             <v-list-item-title class="navbar">About</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="$router.push('/')">
+          <v-list-item @click="newGame(2)">
             <v-list-item-icon>
               <v-icon>mdi-gamepad-variant-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title class="navbar">New Game • 2 Players</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="$router.push('/')">
+          <v-list-item @click="newGame(3)">
             <v-list-item-icon>
               <v-icon>mdi-gamepad-variant-outline</v-icon>
             </v-list-item-icon>
             <v-list-item-title class="navbar">New Game • 3 Players</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="$router.push('/')">
+          <v-list-item @click="newGame(4)">
             <v-list-item-icon>
               <v-icon>mdi-gamepad-variant-outline</v-icon>
             </v-list-item-icon>
@@ -59,12 +59,20 @@
 </template>
 
 <script>
+import GameService from "@/services/gameService";
+import router from "@/router";
 export default {
   name: "Navbar",
   data: () => ({
     drawer: false,
     group: null,
   }),
+  methods: {
+    async newGame(numOfPlayers) {
+      await GameService.newGame(numOfPlayers);
+      await router.push('/new' + numOfPlayers);
+    }
+  }
 }
 </script>
 

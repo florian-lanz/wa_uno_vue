@@ -1,16 +1,28 @@
 <template>
-  <v-img :src="`../assets/${card}.png`"/>
+  <v-img :src="images.card" class="card" :width="size"/>
 </template>
 
 <script>
 export default {
   name: "Card",
   props: {
-    card: String
-  }
+    card: String,
+    size: String,
+  },
+  data() {
+    return {
+      images: {
+        card: require(`../assets/${this.card}.png`)
+      }
+    }
+  },
 }
 </script>
 
 <style scoped>
+.card {
+  display: inline-block;
+  min-width: 35px;
+}
 
 </style>
