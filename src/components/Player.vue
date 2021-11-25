@@ -1,7 +1,7 @@
 <template>
   <v-card :elevation="0">
     <v-card-text>
-      <Card  @click.native="setCard(card)" v-for="card in cards" :key="card" :card="card.replace(' ', '_')" :size="size" type="cardClickable"/>
+      <Card  @click.native="setCard(card)" v-for="card in cards" :key="card" :card="card.replace(' ', '_')" :size="size" :type="'cardClickable ' + type"/>
     </v-card-text>
   </v-card>
 </template>
@@ -15,6 +15,7 @@ export default {
   props: {
     size: String,
     cards: Array,
+    type: String,
   },
    methods: {
     async setCard(card) {

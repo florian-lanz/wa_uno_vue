@@ -17,9 +17,6 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(this.card)
-  }
 }
 </script>
 
@@ -56,6 +53,11 @@ export default {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.active-player-glow {
+  box-shadow: 0 0 30px 5px #6593A6;
+  background-color: rgba(101, 147, 166, 0.5);
 }
 
 </style>

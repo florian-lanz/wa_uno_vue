@@ -1,7 +1,7 @@
 <template>
   <v-card :elevation="0">
     <v-card-text>
-        <Card v-for="n in cardCount" :key="n" card="Deck" :size="size" type="cardNotClickable"/>
+        <Card v-for="n in cardCount" :key="n" card="Deck" :size="size" :type="'cardNotClickable ' + type"/>
     </v-card-text>
   </v-card>
 </template>
@@ -14,6 +14,7 @@ export default {
   props: {
     cardCount: Number,
     size: String,
+    type: String,
   },
 }
 </script>
