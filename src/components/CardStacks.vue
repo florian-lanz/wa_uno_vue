@@ -2,7 +2,7 @@
   <v-card :elevation="0">
     <v-card-text>
       <Card card="Deck" :size="size"/>
-      <Card :card="openCardStack.replace(' ', '_')" :size="size"/>
+      <Card :key="openCardStack.replace(' ', '_')" :card="openCardStack.replace(' ', '_')" :size="size"/>
     </v-card-text>
   </v-card>
 </template>

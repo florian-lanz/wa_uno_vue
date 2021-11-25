@@ -25,4 +25,10 @@ export default {
   min-width: 35px;
 }
 
+@media (max-width: 959.99px) {
+  .card {
+    width: 5% !important;
+  }
+}
+
 </style>

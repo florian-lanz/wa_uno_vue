@@ -15,7 +15,7 @@
     </v-row>
     <v-row>
       <v-col sm="12">
-        <CardStacks :openCardStack="openCardStack" size="5%" />
+        <CardStacks size="5%" :openCardStack="openCardStack"/>
       </v-col>
     </v-row>
     <v-row v-if="numOfPlayers === 4">
