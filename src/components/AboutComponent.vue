@@ -228,7 +228,7 @@
 
     <v-row class="pl-md-16 pr-md-16 pl-sm-8 pr-sm-8">
       <v-col sm="4" md="3" cols="12">
-        <v-card>
+        <v-card :elevation="0">
           <v-card-text class="text-center text-sm-left">
             <a href="/" class="text-decoration-none">
               <img src="../assets/Uno_Logo.png" width="50" alt="Logo"/>
@@ -237,14 +237,14 @@
         </v-card>
       </v-col>
       <v-col sm="4" md="6" cols="12">
-        <v-card>
+        <v-card :elevation="0" >
           <v-card-text class="text-center">
             <p class="footer-names">© {{ new Date().getFullYear() }} • Moritz Knauer & Florian Lanz</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col sm="4" md="3" cols="12">
-        <v-card>
+        <v-card :elevation="0" >
           <v-card-text class="text-center text-sm-right">
             <a href="https://github.com/florian-lanz/WA_Uno/" class="text-decoration-none" target="_blank" >
               <v-icon class="footer-icon">mdi-github</v-icon>
