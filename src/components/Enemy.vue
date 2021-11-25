@@ -1,7 +1,7 @@
 <template>
   <v-card :elevation="0">
     <v-card-text>
-        <Card v-for="n in cardCount" :key="n" card="Deck" :size="size"/>
+        <Card v-for="n in cardCount" :key="n" card="Deck" :size="size" type="cardNotClickable"/>
     </v-card-text>
   </v-card>
 </template>
