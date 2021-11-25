@@ -13,9 +13,10 @@
     </v-app-bar>
     <v-navigation-drawer
         v-model="drawer"
-        absolute
         temporary
         color="#6593A6"
+        :clipped="true"
+        app
     >
       <v-list
           nav
