@@ -61,6 +61,10 @@ export default {
       this.numOfPlayers = gameJson.numOfPlayers;
       this.playerCards = gameJson.playerCards;
       this.openCardStack = gameJson.openCardStack;
+      if(gameJson.gameText === 'Gegner ist an der Reihe') {
+        await GameService.nextStep();
+        await this.loadGame();
+      }
     }
   },
   async mounted() {
