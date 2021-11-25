@@ -15,7 +15,7 @@
     </v-row>
     <v-row>
       <v-col sm="12">
-        <Enemy :card-count="2"  size="5%"/>
+        <CardStacks :openCardStack="openCardStack" size="5%" />
       </v-col>
     </v-row>
     <v-row v-if="numOfPlayers === 4">
@@ -38,9 +38,10 @@
 import Enemy from "@/components/Enemy";
 import GameService from "@/services/gameService";
 import Player from "@/components/Player";
+import CardStacks from "@/components/CardStacks";
 export default {
   name: "Game",
-  components: {Player, Enemy},
+  components: {Player, Enemy, CardStacks},
   data() {
     return {
       enemy1Cards: 0,
@@ -48,6 +49,7 @@ export default {
       enemy3Cards: 0,
       numOfPlayers: 0,
       playerCards: [],
+      openCardStack: '',
     }
   },
   methods: {
@@ -58,10 +60,12 @@ export default {
       this.enemy3Cards = gameJson.enemy3Cards;
       this.numOfPlayers = gameJson.numOfPlayers;
       this.playerCards = gameJson.playerCards;
+      this.openCardStack = gameJson.openCardStack;
     }
   },
   async mounted() {
     await this.loadGame();
+    console.log(this.openCardStack);
   },
   watch: {
     '$route': 'loadGame'
