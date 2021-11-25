@@ -1,7 +1,7 @@
 <template>
   <v-card :elevation="0">
     <v-card-text>
-      <Card v-for="card in cards" :key="card" :card="card.replace(' ', '_')" :size="size"/>
+        <Card v-for="n in cardCount" :key="n" card="Deck" :size="size"/>
     </v-card-text>
   </v-card>
 </template>
@@ -9,12 +9,12 @@
 <script>
 import Card from "@/components/Card";
 export default {
-  name: "Player",
+  name: "Enemy",
   components: {Card},
   props: {
+    cardCount: Number,
     size: String,
-    cards: Array,
-  }
+  },
 }
 </script>
 
