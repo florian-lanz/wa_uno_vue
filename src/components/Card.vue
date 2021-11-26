@@ -1,5 +1,7 @@
 <template>
-  <v-img :src="images.card" :class="'card ' + type" :width="size"/>
+  <span class="card-padding">
+    <v-img :src="images.card" :class="'card ' + type" :width="size"/>
+  </span>
 </template>
 
 <script>
@@ -24,6 +26,11 @@ export default {
 .card {
   display: inline-block;
   min-width: 35px;
+}
+
+.card-padding {
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 @media (max-width: 959.99px) {

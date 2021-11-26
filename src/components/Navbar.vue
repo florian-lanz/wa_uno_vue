@@ -81,6 +81,7 @@ export default {
 <style scoped>
 .navbar {
   color: #FFFFFF;
+  font-family: Comfortaa !important;
 }
 
 i.v-icon.v-icon {

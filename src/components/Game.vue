@@ -1,5 +1,10 @@
 <template>
   <v-container fluid fill-height>
+    <v-row>
+      <v-col sm="12">
+        <IconMenu/>
+      </v-col>
+    </v-row>
     <v-row v-if="numOfPlayers >= 3">
       <v-col sm="12" md="6">
         <Enemy v-if="!nextTurn && nextEnemy === 1" :card-count="enemy1Cards" size="10%" type="active-player-glow"/>
@@ -40,6 +45,11 @@
         <Player v-else :cards="playerCards" size="5%" type=""/>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col sm="12">
+        <p class="game-text">{{gameText}}</p>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -49,9 +59,10 @@ import GameService from "@/services/gameService";
 import Player from "@/components/Player";
 import CardStacks from "@/components/CardStacks";
 import ChooseColor from "@/components/ChooseColor";
+import IconMenu from "@/components/IconMenu";
 export default {
   name: "Game",
-  components: {ChooseColor, Player, Enemy, CardStacks},
+  components: {IconMenu, ChooseColor, Player, Enemy, CardStacks},
   data() {
     return {
       enemy1Cards: 0,
@@ -60,6 +71,7 @@ export default {
       numOfPlayers: 0,
       playerCards: [],
       openCardStack: '',
+      gameText: '',
       chooseColor: false,
       nextTurn: false,
       nextEnemy: 0,
@@ -77,6 +89,12 @@ export default {
       this.chooseColor = gameJson.gameText === 'Wähle eine Farbe';
       this.nextTurn = gameJson.nextTurn;
       this.nextEnemy = gameJson.nextEnemy;
+      if (gameJson.gameText.startsWith('Du bist dran')) {
+        this.gameText = 'Du bist am Zug';
+      } else {
+        this.gameText = gameJson.gameText;
+      }
+
       await this.sleep(700);
 
       if (!gameJson.gameText.startsWith('Du bist dran') && gameJson.gameText !== 'Wähle eine Farbe' &&
@@ -104,6 +122,12 @@ export default {
 <style scoped>
 div {
   background-color: #141427 !important;
+}
+
+.game-text {
+  font-family: Comfortaa;
+  color: #FFFFFF;
+  padding-bottom: 50px;
 }
 
 </style>
