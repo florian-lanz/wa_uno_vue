@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid fill-height>
+  <v-container fluid fill-height class="rain">
     <v-row>
       <v-col sm="12">
         <IconMenu/>
@@ -50,19 +50,23 @@
         <p class="game-text">{{gameText}}</p>
       </v-col>
     </v-row>
+    <GameEndedScreen v-if="gameText === 'Glückwunsch, du hast gewonnen!' || gameText === 'Du hast leider verloren'" :text="gameText"></GameEndedScreen>
   </v-container>
 </template>
 
 <script>
+import JSConfetti from 'js-confetti'
+
 import Enemy from "@/components/Enemy";
 import GameService from "@/services/gameService";
 import Player from "@/components/Player";
 import CardStacks from "@/components/CardStacks";
 import ChooseColor from "@/components/ChooseColor";
 import IconMenu from "@/components/IconMenu";
+import GameEndedScreen from "./GameEndedScreen";
 export default {
   name: "Game",
-  components: {IconMenu, ChooseColor, Player, Enemy, CardStacks},
+  components: {GameEndedScreen, IconMenu, ChooseColor, Player, Enemy, CardStacks},
   data() {
     return {
       enemy1Cards: 0,
@@ -102,11 +106,35 @@ export default {
         await GameService.nextStep();
         await this.loadGame();
       }
+
+      if(this.gameText === 'Glückwunsch, du hast gewonnen!') {
+        const jsConfetti = new JSConfetti()
+        await this.sleep(100);
+        while(this.gameText === 'Glückwunsch, du hast gewonnen!') {
+          jsConfetti.addConfetti();
+          console.log(gameJson.gameText);
+          await this.sleep(2000);
+        }
+      } else if (this.gameText === 'Du hast leider verloren') {
+        this.createRain();
+      }
     },
     sleep(ms) {
       return new Promise((resolve) => {
         setTimeout(resolve, ms);
       });
+    },
+    createRain() {
+      for (let i = 0; i < 950; i++) {
+        let dropLeft = this.randRange(0, 3000);
+        let dropTop = this.randRange(-1000, 1000);
+        document.querySelector('.rain').append('<div class="drop" id="drop'+ i +'"></div>');
+        document.querySelector('#drop' + i).css('left', dropLeft);
+        document.querySelector('#drop' + i).css('top', dropTop);
+      }
+    },
+    randRange(maxNum, minNum) {
+      return (Math.floor(Math.random(10) * (maxNum - minNum + 1)) + minNum);
     },
   },
   async mounted() {
@@ -128,6 +156,30 @@ div {
   font-family: Comfortaa;
   color: #FFFFFF;
   padding-bottom: 50px;
+}
+
+
+
+.drop {
+  background: #FFFFFF;
+  width: 1px;
+  height: 89px;
+  position: absolute;
+  bottom: 200px;
+  -webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+}
+
+@-webkit-keyframes fall {
+  to {
+    margin-top: 1000px;
+  }
+}
+
+@-moz-keyframes fall {
+  to {
+    margin-top: 1000px;
+  }
 }
 
 </style>
