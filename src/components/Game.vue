@@ -56,6 +56,7 @@
 
 <script>
 import JSConfetti from 'js-confetti'
+import $ from "jquery";
 
 import Enemy from "@/components/Enemy";
 import GameService from "@/services/gameService";
@@ -112,7 +113,6 @@ export default {
         await this.sleep(100);
         while(this.gameText === 'Glückwunsch, du hast gewonnen!') {
           jsConfetti.addConfetti();
-          console.log(gameJson.gameText);
           await this.sleep(2000);
         }
       } else if (this.gameText === 'Du hast leider verloren') {
@@ -128,9 +128,9 @@ export default {
       for (let i = 0; i < 950; i++) {
         let dropLeft = this.randRange(0, 3000);
         let dropTop = this.randRange(-1000, 1000);
-        document.querySelector('.rain').append('<div class="drop" id="drop'+ i +'"></div>');
-        document.querySelector('#drop' + i).css('left', dropLeft);
-        document.querySelector('#drop' + i).css('top', dropTop);
+        $('.rain').append('<div class="drop" id="drop'+ i +'"></div>');
+        $('#drop' + i).css('left', dropLeft);
+        $('#drop' + i).css('top', dropTop);
       }
     },
     randRange(maxNum, minNum) {
@@ -157,8 +157,6 @@ div {
   color: #FFFFFF;
   padding-bottom: 50px;
 }
-
-
 
 .drop {
   background: #FFFFFF;
