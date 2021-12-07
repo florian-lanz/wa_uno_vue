@@ -35,4 +35,8 @@ export default {
   padding: 30px;
 }
 
+::-webkit-scrollbar {
+  display: none !important;
+}
+
 </style>

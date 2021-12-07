@@ -52,7 +52,6 @@
     </v-row>
     <GameEndedScreen v-if="gameText === 'Glückwunsch, du hast gewonnen!' || gameText === 'Du hast leider verloren'"
                      :text="gameText"></GameEndedScreen>
-
     <div v-if="gameText === 'Du hast leider verloren'">
       <div v-for="i in 950" :key="i" class="drop" :id="'drop' + i"></div>
     </div>
