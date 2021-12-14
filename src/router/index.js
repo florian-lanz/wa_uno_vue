@@ -17,6 +17,11 @@ const routes = [
     redirect: '/about'
   },
   {
+    path: '/acc',
+    name: 'Acc',
+    component: Account
+  },
+  {
     path: '/account',
     name: 'Account',
     component: Account
