@@ -33,18 +33,11 @@
             <v-list-item-title class="navbar">About</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="$router.push('/login')">
+          <v-list-item @click="$router.push('/account')">
             <v-list-item-icon>
-              <v-icon>mdi-information-outline</v-icon>
+              <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title class="navbar">Login</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="$router.push('/sign-up')">
-            <v-list-item-icon>
-              <v-icon>mdi-information-outline</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title class="navbar">Sign Up</v-list-item-title>
+            <v-list-item-title class="navbar">Account</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="newGame(2)">
@@ -85,7 +78,7 @@ export default {
   methods: {
     async newGame(numOfPlayers) {
       await GameService.newGame(numOfPlayers);
-      await router.push('/');
+      await router.push('/new');
       await router.push('/new' + numOfPlayers);
     }
   }
