@@ -4,6 +4,7 @@
       <v-col>
         <h1 :v-if="loggedIn" :key="loggedIn" >
         </h1>
+        <EmailAuthentication/>
       </v-col>
     </v-row>
   </v-container>
@@ -11,10 +12,12 @@
 
 <script>
 import { getAuth } from 'firebase/auth';
+import EmailAuthentication from "@/components/EmailAuthentication";
 
 export default {
   name: "Account",
   components: {
+    EmailAuthentication
 
   },
   data() {
