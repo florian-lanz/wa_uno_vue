@@ -11,7 +11,7 @@
     <v-tabs-items v-model="tab">
       <v-tab-item>
         <v-card class="pt-10" :elevation="0">
-          <v-text-field dark class="text-field" type="text" color="#FFFFFF" v-model="username" label="Username"></v-text-field>
+          <v-text-field dark type="text" color="#FFFFFF" v-model="username" label="Username"></v-text-field>
           <v-text-field dark type="text" color="#FFFFFF" v-model="email" label="E-Mail"></v-text-field>
           <v-text-field dark type="password" color="#FFFFFF" v-model="password" label="Password"></v-text-field>
           <v-btn class="mt-1 mb-1 button" autocapitalize="false" @click="signUp">
@@ -56,7 +56,8 @@ export default {
       createUserWithEmailAndPassword(auth, this.email, this.password)
           .then(() => {
             updateProfile(auth.currentUser, {
-              displayName: this.username
+              displayName: this.username,
+              photoURL: 'https://icon-library.com/images/anonymous-tumblr-icon/anonymous-tumblr-icon-16.jpg'
             }).then(() => {
               this.$router.replace('acc');
               this.$router.replace('account');

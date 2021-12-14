@@ -10,6 +10,11 @@
         </h1>
       </v-col>
       <v-col cols="12">
+        <v-avatar size="75" v-if="loggedIn">
+          <img :src="img" width="75">
+        </v-avatar>
+      </v-col>
+      <v-col cols="12">
         <h2 v-if="!loggedIn" :key="loggedIn">
           Um Uno spielen zu können, musst du mit einem Account angemeldet sein.
         </h2>
@@ -29,15 +34,15 @@
       <v-col v-if="!loggedIn" cols="3">
       </v-col>
       <v-col cols="12">
-        <v-btn v-if="!loggedIn" class="mt-5 mb-1 button" @click="socialLogin" autocapitalize="false" width="300">
+        <v-btn v-if="!loggedIn" class="mt-5 mb-1 button" @click="socialLogin" autocapitalize="false">
+          <img src="../assets/google-icon.png" width="25">
+          &nbsp;&nbsp;
           <span class="text-styling-button">Mit Google anmelden</span>
-          <v-spacer/>
-          <v-icon>mdi-google</v-icon>
         </v-btn>
-        <v-btn v-else class="mt-5 mb-1 button" @click="logout" autocapitalize="false" width="200">
-          <span class="text-styling-button">Abmelden</span>
-          <v-spacer/>
+        <v-btn v-else class="mt-5 mb-1 button" @click="logout" autocapitalize="false">
           <v-icon>mdi-logout-variant</v-icon>
+          &nbsp;&nbsp;
+          <span class="text-styling-button">Abmelden</span>
         </v-btn>
       </v-col>
     </v-row>
@@ -60,7 +65,8 @@ export default {
   data() {
     return {
       loggedIn: false,
-      name: ""
+      name: "",
+      img: '',
     }
   },
   methods: {
@@ -89,6 +95,7 @@ export default {
       } else {
         this.loggedIn = true;
         this.name = currentUser.displayName
+        this.img = currentUser.photoURL
       }
     }
   },
@@ -100,6 +107,7 @@ export default {
     } else {
       this.loggedIn = true;
       this.name = currentUser.displayName
+      this.img = currentUser.photoURL
     }
   },
   watch: {
