@@ -6,7 +6,7 @@
         grow
     >
       <v-tab autocapitalize="false">Registrierung</v-tab>
-      <v-tab autocapitalize="false">Anmelden</v-tab>
+      <v-tab autocapitalize="false">Anmeldung</v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <v-tab-item>
@@ -52,15 +52,13 @@ export default {
   },
   methods: {
     signUp() {
-      console.log(this.username)
-      console.log(this.email)
-      console.log(this.password)
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, this.email, this.password)
           .then(() => {
             updateProfile(auth.currentUser, {
               displayName: this.username
             }).then(() => {
+              this.$router.replace('acc');
               this.$router.replace('account');
             }).catch((err) => {
               alert(err);
@@ -74,6 +72,7 @@ export default {
       const auth = getAuth();
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then(() => {
+          this.$router.replace('acc');
           this.$router.replace('account');
         })
         .catch(() => {

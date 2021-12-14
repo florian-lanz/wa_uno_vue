@@ -14,21 +14,28 @@
           Um Uno spielen zu können, musst du mit einem Account angemeldet sein.
         </h2>
       </v-col>
-      <v-col cols="2">
+      <v-col v-if="!loggedIn" cols="4">
       </v-col>
-      <v-col cols="8">
-        <EmailAuthentication/>
+      <v-col v-if="!loggedIn" cols="4">
+        <EmailAuthentication class="pb-5 pt-5"/>
       </v-col>
-      <v-col cols="2">
+      <v-col v-if="!loggedIn" cols="4">
+      </v-col>
+      <v-col v-if="!loggedIn" cols="3">
+      </v-col>
+      <v-col v-if="!loggedIn" cols="6">
+        <hr>
+      </v-col>
+      <v-col v-if="!loggedIn" cols="3">
       </v-col>
       <v-col cols="12">
-        <v-btn v-if="!loggedIn" class="mt-1 mb-1 button" @click="socialLogin" autocapitalize="false" width="300">
-          <h3 class="text-styling-button">Mit Google anmelden</h3>
+        <v-btn v-if="!loggedIn" class="mt-5 mb-1 button" @click="socialLogin" autocapitalize="false" width="300">
+          <span class="text-styling-button">Mit Google anmelden</span>
           <v-spacer/>
           <v-icon>mdi-google</v-icon>
         </v-btn>
-        <v-btn v-else class="mt-1 mb-1 button" @click="logout" autocapitalize="false" width="200">
-          <h3 class="text-styling-button">Abmelden</h3>
+        <v-btn v-else class="mt-5 mb-1 button" @click="logout" autocapitalize="false" width="200">
+          <span class="text-styling-button">Abmelden</span>
           <v-spacer/>
           <v-icon>mdi-logout-variant</v-icon>
         </v-btn>
@@ -61,22 +68,11 @@ export default {
       const provider = new GoogleAuthProvider();
       const auth = getAuth();
       signInWithPopup(auth, provider)
-          .then((result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            const user = result.user;
-
-            alert(token + ' ' + user);
-            this.$router.replace('acc');
-            this.$router.replace('account');
-          }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-        alert(error + errorCode + errorMessage + email + credential);
-      });
+        .then(() => {
+          this.$router.replace('acc');
+          this.$router.replace('account');
+        }).catch(() => {}
+      );
     },
     logout() {
       const auth = getAuth();
