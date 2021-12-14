@@ -19,19 +19,19 @@
           Um Uno spielen zu können, musst du mit einem Account angemeldet sein.
         </h2>
       </v-col>
-      <v-col v-if="!loggedIn" cols="4">
+      <v-col v-if="!loggedIn" cols="1" sm="2" md="3" lg="4">
       </v-col>
-      <v-col v-if="!loggedIn" cols="4">
+      <v-col v-if="!loggedIn" cols="10" sm="8" md="6" lg="4">
         <EmailAuthentication class="pb-5 pt-5"/>
       </v-col>
-      <v-col v-if="!loggedIn" cols="4">
+      <v-col v-if="!loggedIn" cols="1" sm="2" md="3" lg="4">
       </v-col>
-      <v-col v-if="!loggedIn" cols="3">
+      <v-col v-if="!loggedIn" cols="1" sm="1" md="2" lg="3">
       </v-col>
-      <v-col v-if="!loggedIn" cols="6">
+      <v-col v-if="!loggedIn" cols="10" sm="10" md="8" lg="6">
         <hr>
       </v-col>
-      <v-col v-if="!loggedIn" cols="3">
+      <v-col v-if="!loggedIn" cols="1" sm="1" md="2" lg="3">
       </v-col>
       <v-col cols="12">
         <v-btn v-if="!loggedIn" class="mt-5 mb-1 button" @click="socialLogin" autocapitalize="false">
