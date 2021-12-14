@@ -33,6 +33,20 @@
             <v-list-item-title class="navbar">About</v-list-item-title>
           </v-list-item>
 
+          <v-list-item @click="$router.push('/login')">
+            <v-list-item-icon>
+              <v-icon>mdi-information-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title class="navbar">Login</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item @click="$router.push('/sign-up')">
+            <v-list-item-icon>
+              <v-icon>mdi-information-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title class="navbar">Sign Up</v-list-item-title>
+          </v-list-item>
+
           <v-list-item @click="newGame(2)">
             <v-list-item-icon>
               <v-icon>mdi-gamepad-variant-outline</v-icon>

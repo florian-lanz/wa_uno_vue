@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "firebase": "^9.6.1",
     "jquery": "^3.6.0",
     "js-confetti": "^0.9.1",
     "register-service-worker": "^1.7.2",
