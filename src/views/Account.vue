@@ -9,10 +9,18 @@
           Hallo Unbekannter!
         </h1>
       </v-col>
-      <v-col cols="12">
-        <v-avatar size="75" v-if="loggedIn">
+      <v-col  v-if="loggedIn" cols="12">
+        <v-avatar size="75">
           <img :src="img" width="75">
         </v-avatar>
+      </v-col>
+      <v-col v-if="loggedIn" cols="1" sm="2" md="3" lg="4">
+      </v-col>
+      <v-col v-if="loggedIn" cols="10" sm="8" md="6" lg="4">
+        <p class="user-data">Username: {{name}}</p>
+        <p class="user-data">E-Mail: {{email}}</p>
+      </v-col>
+      <v-col v-if="loggedIn" cols="1" sm="2" md="3" lg="4">
       </v-col>
       <v-col cols="12">
         <h2 v-if="!loggedIn" :key="loggedIn">
@@ -39,7 +47,7 @@
           &nbsp;&nbsp;
           <span class="text-styling-button">Mit Google anmelden</span>
         </v-btn>
-        <v-btn v-else class="mt-5 mb-1 button" @click="logout" autocapitalize="false">
+        <v-btn v-else class="mt-1 mb-1 button" @click="logout" autocapitalize="false">
           <v-icon>mdi-logout-variant</v-icon>
           &nbsp;&nbsp;
           <span class="text-styling-button">Abmelden</span>
@@ -65,7 +73,8 @@ export default {
   data() {
     return {
       loggedIn: false,
-      name: "",
+      name: '',
+      email: '',
       img: '',
     }
   },
@@ -95,6 +104,7 @@ export default {
       } else {
         this.loggedIn = true;
         this.name = currentUser.displayName
+        this.email = currentUser.email
         this.img = currentUser.photoURL
       }
     }
@@ -107,6 +117,7 @@ export default {
     } else {
       this.loggedIn = true;
       this.name = currentUser.displayName
+      this.email = currentUser.email
       this.img = currentUser.photoURL
     }
   },
@@ -127,6 +138,12 @@ h1 {
 h2 {
   font-family: Comfortaa;
   color: #FFFFFF;
+}
+
+.user-data {
+  font-family: Comfortaa;
+  color: #FFFFFF;
+  font-size: 18px;
 }
 
 div {
