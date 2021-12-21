@@ -34,7 +34,7 @@ export default {
   methods: {
     async newGame(numOfPlayers) {
       await GameService.newGame(numOfPlayers);
-      await router.push('/');
+      await router.push('/new');
       await router.push('/new' + numOfPlayers);
     }
   }
